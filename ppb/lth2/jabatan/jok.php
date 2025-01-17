@@ -6,7 +6,7 @@ if($sebelum->connect_error){
     die("Koneksi gagal: " . $sebelum->connect_error);
 }
 
-$query = "select * from absensi";
+$query = "select * from jabatan";
 
 $hasil = $gampang->query($query);
 
@@ -23,21 +23,15 @@ $hasil = $gampang->query($query);
     <table>
         <thead>
             <tr>
-                <th>id absensi</th>
-                <th>id Karyawan</th>
-                <th>Tanggal</th>
-                <th>jam masuk</th>
-                <th>jam keluar</th>
+                <th>Nama Jabatan</th>
+                <th>Gaji Pokok</th>
             </tr>
         </thead>
         <tbody>
             <?php while($jual = $hasil->fetch_assoc()):?>
             <tr>
-                <td><?php echo $jual['id_absemsi'];?></td>
-                <td><?php echo $jual['id_karyawan'];?></td>
-                <td><?php echo $jual['tanggal'];?></td>
-                <td><?php echo $jual['jam_masuk'];?></td>
-                <td><?php echo $jual['jam_keluar'];?></td>
+                <td><?php echo $jual['namak_jabatan'];?></td>
+                <td><?php echo $jual['gaji_pokok'];?></td>
             </tr>
             <?php endwhile; ?>
         </tbody>

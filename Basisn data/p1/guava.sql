@@ -28,7 +28,7 @@ CREATE TABLE karyawan(
 );
 
 CREATE TABLE jabatan(
-    id_jabatan INT PRIMARY KEY,
+    id_jabatan INT PRIMARY KEY AUTO_INCREMENT,
     nama_jabatan VARCHAR(50),
     gaji_pokok DECIMAL(10,2)
 )
@@ -126,3 +126,5 @@ JOIN absensi
 ON karyawan.id_karyawan = absensi.id_karyawan
 JOIN jabatan
 ON karyawan.id_jabatan = jabatan.id_jabatan;
+
+DROP TABLE jabatan;
