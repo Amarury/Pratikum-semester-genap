@@ -1,12 +1,11 @@
 <?php
-
-$gampang = new mysqli('localhost','root','','byul');
+$gampang = new mysqli('localhost','root','','toko_app');
 
 if($gampang->connect_error){
     die("Koneksi gagal : " . $gampang->connect_error);
 }
 
-$query = "select * from jabatan";
+$query = "select * from transactions";
 
 $hasil = $gampang->query($query);
 
@@ -25,23 +24,21 @@ $hasil = $gampang->query($query);
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Jabatan</th>
-                <th>Gaji Pokok</th>
+                <th>Tanggal</th>
+                <th>Total harga</th>
+                <th>Id user</th>
                 <th>#</th>
             </tr>
         </thead>
         <tbody>
-            <?php while($jual = $hasil->fetch_assoc()):
+        <?php while($jual = $hasil->fetch_assoc()):
                 $no = 1;
                 ?>
             <tr>
                 <td><?=$no?></td>
-                <td><?php echo $jual['nama_jabatan'];?></td>
-                <td><?php echo $jual['gaji_pokok'];?></td>
-                <td>
-                    <a class="btn btn-info btn-sm" href="http://localhost:8080/ppb/lth2/jabatan/up.php?id_jabatan=<?=$jual['id_jabatan']?>">Edit</a>
-                    <a class="btn btn-danger btn-sm" href="http://localhost:8080/ppb/lth2/jabatan/hps.php?id_jabatan=<?=$jual['id_jabatan']?>">Hapus</a>
-                </td>
+                <td><?php echo $jual['tanggal'];?></td>
+                <td><?php echo $jual['total_harga'];?></td>
+                <td><?php echo $jual['id_user'];?></td>
             </tr>
             <?php $no++;  endwhile; ?>
         </tbody>

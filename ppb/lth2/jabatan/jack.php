@@ -22,6 +22,21 @@ if(isset($_POST['nama_jabatan'])){
     <link rel="stylesheet" href="../assets/bt.css">
 </head>
 <body>
-    
+<table>
+        <thead>
+            <tr>
+                <th>Nama Jabatan</th>
+                <th>Gaji Pokok</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while($jual = $hasil->fetch_assoc()):?>
+            <tr>
+                <td><?php echo $jual['nama_jabatan'];?></td>
+                <td><?php echo $jual['gaji_pokok'];?></td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
 </body>
 </html>

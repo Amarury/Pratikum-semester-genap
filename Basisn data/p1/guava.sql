@@ -20,7 +20,7 @@ CREATE TABLE absensi(
 );
 
 CREATE TABLE karyawan(
-   id_karyawan INT PRIMARY KEY,
+   id_karyawan INT PRIMARY KEY AUTO_INCREMENT,
    nama VARCHAR(100),
    tanggal_lahir DATE,
    jenis_kelamin ENUM("L","P"),
@@ -127,4 +127,9 @@ ON karyawan.id_karyawan = absensi.id_karyawan
 JOIN jabatan
 ON karyawan.id_jabatan = jabatan.id_jabatan;
 
-DROP TABLE jabatan;
+DROP TABLE karyawan;
+
+SHOW CREATE TABLE karyawan;
+
+ALTER TABLE karyawan
+DROP FOREIGN KEY i
