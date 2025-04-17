@@ -11,6 +11,7 @@ if(isset($_POST['kode_buku'])){
     $penerbit = $_POST['penerbit'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
+    
     $hasil = $buku->query("INSERT INTO books(kode_buku,judul,pengarang,penerbit,harga,stok) VALUES('$kode_buku','$judul','$pengarang','$penerbit',$harga,$stok)");
 }
 ?>
@@ -24,7 +25,7 @@ if(isset($_POST['kode_buku'])){
     <link rel="stylesheet" href="../assets/bt.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container">a
         <?php if(isset($hasil)): ?>
 
         <?php endif; ?>

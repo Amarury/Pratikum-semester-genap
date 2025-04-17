@@ -1,7 +1,7 @@
 -- Active: 1725408327902@@127.0.0.1@3306@app
-CREATE DATABASE toko_app;
+CREATE DATABASE app;
 
-use toko_app;
+use app;
 
 CREATE Table users(
     id_user INT AUTO_INCREMENT PRIMARY KEY,
@@ -11,7 +11,7 @@ CREATE Table users(
 );
 
 CREATE Table books(
-    id_buku INT AUTO_INCREMENT PRIMARY KEY,
+    id_buku INT AUTO_INCREMENT PRIMARY KEY,         
     kode_buku VARCHAR(255),
     judul VARCHAR(255),
     pengarang VARCHAR(255),

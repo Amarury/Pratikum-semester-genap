@@ -1,5 +1,5 @@
 <?php
-$gampang = new mysqli('localhost','root','','toko_app');
+$gampang = new mysqli('localhost','root','','app');
 
 if($gampang->connect_error){
     die("Koneksi gagal : " . $gampang->connect_error);

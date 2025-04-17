@@ -20,33 +20,32 @@ INSERT INTO barang(id_brng,nama_brng,stok) VALUES
 INSERT INTO pembelian(id_brng,jml_pembelian) VALUES
     ("A10",5);
 
-DELIMITER $$
+DROP TABLE pembelian;
+
+DROP TABLE barang;
+
+
 
 CREATE TRIGGER jka
 BEFORE INSERT
-ON barang
-FOR EACH ROW
-BEGIN
-    SET NEW.stok = NEW.stok + 1;
-END$$
-
-DELIMITER;
-
-INSERT INTO barang(id_brng,nama_brng,stok) VALUES
-    ("A13","Ram",5);
-
-SELECT*FROM barang;
-
-
-
-DELIMITER $$
-
-CREATE TRIGGER multiplayer
-AFTER INSERT
 ON pembelian
 FOR EACH ROW
 BEGIN
-    
+     DECLARE jumlah_stok INT;
+     SET jumlah_stok = (SELECT stok FROM barang WHERE id_brng = NEW.id_brng);
+    -- cara 2
+    -- SELECT stok into jumlah_stok FROM barang WHERE id_brng = NEW.id_brng;
+    -- cek
+    IF jumlah_stok < new jml_pembelian THEN 
+        SIGNAL SQLSTATE '45000'
+        -- kirim pesan
+        SET MESSAGE_TEXT = 'Stok barang tidak cukup';
+    END IF;
+END$$
 
-DELIMITER;
+
+
+
+
+
 
